@@ -21,7 +21,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
     <!-- Theme CSS -->
-    <link id="theme-style" rel="stylesheet" href="<?php echo get_template_directory_uri();?>/assets/css/styles.css">
+    <link id="theme-style" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/styles.css">
 
 </head>
 
@@ -31,16 +31,17 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col">
-                    <img class="profile-image img-fluid float-start rounded-circle" src="<?php echo get_template_directory_uri();?>/assets/images/profile.png" alt="profile image" />
+                    <img class="profile-image float-start rounded-circle" style="width:128px !important;height:128px !important;" src="<?php the_field('photo', 'user_1'); ?>" alt="profile image" />
                     <div class="profile-content">
-                        <h1 class="name">Your Name</h1>
-                        <h2 class="desc">Your Bio</h2>
+                        <h1 class="name"><?php echo get_bloginfo('name'); ?></h1>
+                        <h2 class="desc"><?php echo get_bloginfo('description'); ?></h2>
                         <ul class="social list-inline">
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-github-alt"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-stack-overflow"></i></a></li>
-                            <li class="list-inline-item last-item"><a href="#"><i class="fab fa-codepen"></i></a></li>
+                            <?php $user_id = 1; ?>
+                            <li class="list-inline-item"><a href="<?php the_field('facebook', 'user_' . $user_id); ?>"><i class="fab fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="<?php the_field('twitter', 'user_' . $user_id); ?>"><i class="fab fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="<?php the_field('github', 'user_' . $user_id); ?>"><i class="fab fa-github-alt"></i></a></li>
+                            <li class="list-inline-item"><a href="<?php the_field('instagram', 'user_' . $user_id); ?>"><i class="fab fa-instagram"></i></a></li>
+                            <li class="list-inline-item last-item"><a href="<?php the_field('tiktok', 'user_' . $user_id); ?>"><i class="fab fa-tiktok"></i></a></li>
                         </ul>
                     </div>
                     <!--//profile-->
@@ -54,7 +55,7 @@
                         </div>
                     </div>
                     <!--//dark-mode-switch-->
-                    <a class="btn btn-cta-primary" href="#" target="_blank"><i class="fas fa-paper-plane"></i> Contact Me</a>
+                    <a class="btn btn-cta-primary" href="mailto:<?php echo get_bloginfo('admin_email'); ?>" target="_blank"><i class="fas fa-paper-plane"></i> Contact Me</a>
                 </div>
                 <!--//col-->
             </div>
@@ -69,9 +70,9 @@
             <div class="primary col-lg-8 col-12">
                 <section class="about section">
                     <div class="section-inner shadow-sm rounded">
-                        <h2 class="heading">About Me</h2>
+                        <h2 class="heading"><?php the_title();?></h2>
                         <div class="content">
-                            <p>Write a brief intro about yourself. It's a good idea to include your personal interests and hobbies as well. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec. Commodo ligula eget dolor. Aenean massa.</p>
+                            <?php the_content(); ?>
 
                         </div>
                         <!--//content-->
@@ -89,7 +90,7 @@
 
                                 <div class="featured-image has-ribbon">
                                     <a href="#" target="_blank">
-                                        <img class="img-fluid project-image rounded shadow-sm" src="<?php echo get_template_directory_uri();?>/assets/images/projects/project-featured.png" alt="project name" />
+                                        <img class="img-fluid project-image rounded shadow-sm" src="<?php echo get_template_directory_uri(); ?>/assets/images/projects/project-featured.png" alt="project name" />
                                     </a>
                                     <div class="ribbon">
                                         <div class="text">New</div>
@@ -108,7 +109,7 @@
                             <hr class="divider" />
                             <div class="item row">
                                 <a class="col-md-4 col-12" href="#/bootstrap-templates/startup/coderpro-bootstrap-4-startup-template-for-software-projects/" target="_blank">
-                                    <img class="img-fluid project-image rounded shadow-sm" src="<?php echo get_template_directory_uri();?>/assets/images/projects/project-1.png" alt="project name" />
+                                    <img class="img-fluid project-image rounded shadow-sm" src="<?php echo get_template_directory_uri(); ?>/assets/images/projects/project-1.png" alt="project name" />
                                 </a>
                                 <div class="desc col-md-8 col-12">
                                     <h3 class="title"><a href="#/bootstrap-templates/startup/coderpro-bootstrap-4-startup-template-for-software-projects/" target="_blank">CoderPro - Boootstrap Startup Template For Software Projects</a></h3>
@@ -121,7 +122,7 @@
 
                             <div class="item row">
                                 <a class="col-md-4 col-12" href="#/bootstrap-templates/resume/devcard-bootstrap-4-vcard-portfolio-template-for-software-developers/" target="_blank">
-                                    <img class="img-fluid project-image rounded shadow-sm" src="<?php echo get_template_directory_uri();?>/assets/images/projects/project-2.png" alt="project name" />
+                                    <img class="img-fluid project-image rounded shadow-sm" src="<?php echo get_template_directory_uri(); ?>/assets/images/projects/project-2.png" alt="project name" />
                                 </a>
                                 <div class="desc col-md-8 col-12">
                                     <h3 class="title"><a href="#/bootstrap-templates/resume/devcard-bootstrap-4-vcard-portfolio-template-for-software-developers/" target="_blank">DevCard - Boootstrap Portfolio Template for Software Developers</a></h3>
@@ -134,7 +135,7 @@
 
                             <div class="item row">
                                 <a class="col-md-4 col-12" href="#/bootstrap-templates/resume/instance-bootstrap-portfolio-theme-for-developers/" target="_blank">
-                                    <img class="img-fluid project-image rounded shadow-sm" src="<?php echo get_template_directory_uri();?>/assets/images/projects/project-3.png" alt="project name" />
+                                    <img class="img-fluid project-image rounded shadow-sm" src="<?php echo get_template_directory_uri(); ?>/assets/images/projects/project-3.png" alt="project name" />
                                 </a>
                                 <div class="desc col-md-8 col-12">
                                     <h3 class="title"><a href="#/bootstrap-templates/resume/instance-bootstrap-portfolio-theme-for-developers/" target="_blank">Instance - Boootstrap Portfolio Template for Aspiring Full Stack Developers</a></h3>
@@ -147,7 +148,7 @@
 
                             <div class="item row">
                                 <a class="col-md-4 col-12" href="#/bootstrap-templates/startup/bootstrap-template-for-mobile-apps-nova-pro/" target="_blank">
-                                    <img class="img-fluid project-image rounded shadow-sm" src="<?php echo get_template_directory_uri();?>/assets/images/projects/project-4.png" alt="project name" />
+                                    <img class="img-fluid project-image rounded shadow-sm" src="<?php echo get_template_directory_uri(); ?>/assets/images/projects/project-4.png" alt="project name" />
                                 </a>
                                 <div class="desc col-md-8 col-12">
                                     <h3 class="title"><a href="#/bootstrap-templates/startup/bootstrap-template-for-mobile-apps-nova-pro/" target="_blank">Nova Pro - Boootstrap Template for Mobile Startups</a></h3>
@@ -159,7 +160,7 @@
                             <!--//item-->
                             <div class="item row">
                                 <a class="col-md-4 col-12" href="#/bootstrap-templates/startup/devstudio-bootstrap-theme-for-web-development-agencies-and-developers/" target="_blank">
-                                    <img class="img-fluid project-image rounded shadow-sm" src="<?php echo get_template_directory_uri();?>/assets/images/projects/project-5.png" alt="project name" />
+                                    <img class="img-fluid project-image rounded shadow-sm" src="<?php echo get_template_directory_uri(); ?>/assets/images/projects/project-5.png" alt="project name" />
                                 </a>
                                 <div class="desc col-md-8 col-12">
                                     <h3 class="title"><a href="#/bootstrap-templates/startup/devstudio-bootstrap-theme-for-web-development-agencies-and-developers/" target="_blank">DevStudio - Boootstrap Template for WebDev Agencies and Freelance Developers</a></h3>
@@ -476,13 +477,13 @@
 
     <!-- Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous" defer></script>
-    <script type="text/javascript" src="<?php echo get_template_directory_uri();?>/assets/js/rss.global.min.js" defer></script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/rss.global.min.js" defer></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/dark-mode-switch@1.0.0/dark-mode-switch.min.js" defer></script>
     <!-- github calendar plugin -->
     <!-- github activity plugin -->
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js" defer></script>
     <!-- custom js -->
-    <script type="text/javascript" src="<?php echo get_template_directory_uri();?>/assets/js/main.js" defer></script>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/main.js" defer></script>
 </body>
 
 </html>
