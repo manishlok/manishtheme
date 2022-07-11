@@ -1,3 +1,7 @@
+<?php
+$current_user = wp_get_current_user();
+$user_id = 1;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +40,6 @@
                         <h1 class="name"><?php echo get_bloginfo('name'); ?></h1>
                         <h2 class="desc"><?php echo get_bloginfo('description'); ?></h2>
                         <ul class="social list-inline">
-                            <?php $user_id = 1; ?>
                             <li class="list-inline-item"><a href="<?php the_field('facebook', 'user_' . $user_id); ?>"><i class="fab fa-facebook"></i></a></li>
                             <li class="list-inline-item"><a href="<?php the_field('twitter', 'user_' . $user_id); ?>"><i class="fab fa-twitter"></i></a></li>
                             <li class="list-inline-item"><a href="<?php the_field('github', 'user_' . $user_id); ?>"><i class="fab fa-github-alt"></i></a></li>
@@ -70,7 +73,7 @@
             <div class="primary col-lg-8 col-12">
                 <section class="about section">
                     <div class="section-inner shadow-sm rounded">
-                        <h2 class="heading"><?php the_title();?></h2>
+                        <h2 class="heading"><?php the_title(); ?></h2>
                         <div class="content">
                             <?php the_content(); ?>
 
@@ -246,8 +249,8 @@
                         <div class="content">
                             <ul class="list-unstyled">
                                 <li><i class="fas fa-map-marker-alt"></i><span class="sr-only">Location:</span>San Francisco, US</li>
-                                <li><i class="fas fa-envelope"></i><span class="sr-only">Email:</span><a href="#">jameslee@website.com</a></li>
-                                <li><i class="fas fa-link"></i><span class="sr-only">Website:</span><a href="#">https://www.website.com</a></li>
+                                <li><i class="fas fa-envelope"></i><span class="sr-only">Email:</span><a href="#"><?php echo $current_user->user_email; ?></a></li>
+                                <li><i class="fas fa-link"></i><span class="sr-only">Website:</span><a href="#"><?php echo $current_user->user_url; ?></a></li>
                             </ul>
                         </div>
                         <!--//content-->
