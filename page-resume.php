@@ -135,7 +135,7 @@ $user_id = 1;
                                             ?>
                                         </a>
                                         <div class="desc col-md-8 col-12">
-                                            <h3 class="title"><a href="<?php the_permalink();?>" target="_blank"><?php the_title(); ?></a></h3>
+                                            <h3 class="title"><a href="<?php the_permalink(); ?>" target="_blank"><?php the_title(); ?></a></h3>
                                             <p class="mb-2"><?php the_content(); ?></p>
                                             <p><a class="more-link" href="<?php the_permalink(); ?>"></i>Find out more</a></p>
                                         </div>
@@ -220,9 +220,9 @@ $user_id = 1;
                         <h2 class="heading sr-only">Basic Information</h2>
                         <div class="content">
                             <ul class="list-unstyled">
-                                <li><i class="fas fa-map-marker-alt"></i><span class="sr-only">Location:</span>San Francisco, US</li>
-                                <li><i class="fas fa-envelope"></i><span class="sr-only">Email:</span><a href="#"><?php echo $current_user->user_email; ?></a></li>
-                                <li><i class="fas fa-link"></i><span class="sr-only">Website:</span><a href="#"><?php echo $current_user->user_url; ?></a></li>
+                                <li><i class="fas fa-map-marker-alt"></i><span class="sr-only">Location:</span><?php the_field('address', 'user_' . $user_id); ?></li>
+                                <li><i class="fas fa-envelope"></i><span class="sr-only">Email:</span><a href="mailto:<?php echo $current_user->user_email; ?>"><?php echo $current_user->user_email; ?></a></li>
+                                <li><i class="fas fa-link"></i><span class="sr-only">Website:</span><a href="<?php echo $current_user->user_url; ?>"><?php echo $current_user->user_url; ?></a></li>
                             </ul>
                         </div>
                         <!--//content-->
