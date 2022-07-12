@@ -110,70 +110,42 @@ $user_id = 1;
                             </div>
                             <!--//item-->
                             <hr class="divider" />
-                            <div class="item row">
-                                <a class="col-md-4 col-12" href="#/bootstrap-templates/startup/coderpro-bootstrap-4-startup-template-for-software-projects/" target="_blank">
-                                    <img class="img-fluid project-image rounded shadow-sm" src="<?php echo get_template_directory_uri(); ?>/assets/images/projects/project-1.png" alt="project name" />
-                                </a>
-                                <div class="desc col-md-8 col-12">
-                                    <h3 class="title"><a href="#/bootstrap-templates/startup/coderpro-bootstrap-4-startup-template-for-software-projects/" target="_blank">CoderPro - Boootstrap Startup Template For Software Projects</a></h3>
-                                    <p class="mb-2">You can put one of your secondary projects here. Suspendisse in tellus dolor. Vivamus a tortor eu turpis pharetra consequat quis non metus. Aliquam aliquam, orci eu suscipit pellentesque, mauris dui tincidunt enim, eget iaculis ante dolor non turpis.</p>
-                                    <p><a class="more-link" href="#/bootstrap-templates/startup/coderpro-bootstrap-4-startup-template-for-software-projects/" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
-                                </div>
-                                <!--//desc-->
-                            </div>
-                            <!--//item-->
+                            <?php
+                            $args = array(
+                                'post_type' => 'post',
+                                'post_status' => 'publish',
+                                'category_name' => 'project',
+                                'posts_per_page' => 5,
+                                //'orderby' => 'date',
+                                //'order' => 'DESC'
+                            );
+                            $arr_posts = new WP_Query($args);
 
-                            <div class="item row">
-                                <a class="col-md-4 col-12" href="#/bootstrap-templates/resume/devcard-bootstrap-4-vcard-portfolio-template-for-software-developers/" target="_blank">
-                                    <img class="img-fluid project-image rounded shadow-sm" src="<?php echo get_template_directory_uri(); ?>/assets/images/projects/project-2.png" alt="project name" />
-                                </a>
-                                <div class="desc col-md-8 col-12">
-                                    <h3 class="title"><a href="#/bootstrap-templates/resume/devcard-bootstrap-4-vcard-portfolio-template-for-software-developers/" target="_blank">DevCard - Boootstrap Portfolio Template for Software Developers</a></h3>
-                                    <p class="mb-2">You can put one of your secondary projects here. Suspendisse in tellus dolor. Vivamus a tortor eu turpis pharetra consequat quis non metus. Aliquam aliquam, orci eu suscipit pellentesque, mauris dui tincidunt enim, eget iaculis ante dolor non turpis.</p>
-                                    <p><a class="more-link" href="#/bootstrap-templates/resume/devcard-bootstrap-4-vcard-portfolio-template-for-software-developers/" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
-                                </div>
-                                <!--//desc-->
-                            </div>
-                            <!--//item-->
+                            if ($arr_posts->have_posts()) :
 
-                            <div class="item row">
-                                <a class="col-md-4 col-12" href="#/bootstrap-templates/resume/instance-bootstrap-portfolio-theme-for-developers/" target="_blank">
-                                    <img class="img-fluid project-image rounded shadow-sm" src="<?php echo get_template_directory_uri(); ?>/assets/images/projects/project-3.png" alt="project name" />
-                                </a>
-                                <div class="desc col-md-8 col-12">
-                                    <h3 class="title"><a href="#/bootstrap-templates/resume/instance-bootstrap-portfolio-theme-for-developers/" target="_blank">Instance - Boootstrap Portfolio Template for Aspiring Full Stack Developers</a></h3>
-                                    <p class="mb-2">You can put one of your secondary projects here. Suspendisse in tellus dolor. Vivamus a tortor eu turpis pharetra consequat quis non metus. Aliquam aliquam, orci eu suscipit pellentesque, mauris dui tincidunt enim, eget iaculis ante dolor non turpis.</p>
-                                    <p><a class="more-link" href="#/bootstrap-templates/resume/instance-bootstrap-portfolio-theme-for-developers/" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
-                                </div>
-                                <!--//desc-->
-                            </div>
+                                while ($arr_posts->have_posts()) :
+                                    $arr_posts->the_post();
+                            ?>
+                                    <div class="item row">
+                                        <a class="col-md-4 col-12" href="<?php the_permalink(); ?>" target="_blank">
+                                            <?php
+                                            if (has_post_thumbnail()) :
+                                                the_post_thumbnail('medium', array('class' => 'img-fluid project-image rounded shadow-sm'));
+                                            endif;
+                                            ?>
+                                        </a>
+                                        <div class="desc col-md-8 col-12">
+                                            <h3 class="title"><a href="<?php the_permalink();?>" target="_blank"><?php the_title(); ?></a></h3>
+                                            <p class="mb-2"><?php the_content(); ?></p>
+                                            <p><a class="more-link" href="<?php the_permalink(); ?>"></i>Find out more</a></p>
+                                        </div>
+                                        <!--//desc-->
+                                    </div>
+                            <?php
+                                endwhile;
+                            endif;
+                            ?>
                             <!--//item-->
-
-                            <div class="item row">
-                                <a class="col-md-4 col-12" href="#/bootstrap-templates/startup/bootstrap-template-for-mobile-apps-nova-pro/" target="_blank">
-                                    <img class="img-fluid project-image rounded shadow-sm" src="<?php echo get_template_directory_uri(); ?>/assets/images/projects/project-4.png" alt="project name" />
-                                </a>
-                                <div class="desc col-md-8 col-12">
-                                    <h3 class="title"><a href="#/bootstrap-templates/startup/bootstrap-template-for-mobile-apps-nova-pro/" target="_blank">Nova Pro - Boootstrap Template for Mobile Startups</a></h3>
-                                    <p class="mb-2">You can put one of your secondary projects here. Suspendisse in tellus dolor. Vivamus a tortor eu turpis pharetra consequat quis non metus.</p>
-                                    <p><a class="more-link" href="#/bootstrap-templates/startup/bootstrap-template-for-mobile-apps-nova-pro/" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
-                                </div>
-                                <!--//desc-->
-                            </div>
-                            <!--//item-->
-                            <div class="item row">
-                                <a class="col-md-4 col-12" href="#/bootstrap-templates/startup/devstudio-bootstrap-theme-for-web-development-agencies-and-developers/" target="_blank">
-                                    <img class="img-fluid project-image rounded shadow-sm" src="<?php echo get_template_directory_uri(); ?>/assets/images/projects/project-5.png" alt="project name" />
-                                </a>
-                                <div class="desc col-md-8 col-12">
-                                    <h3 class="title"><a href="#/bootstrap-templates/startup/devstudio-bootstrap-theme-for-web-development-agencies-and-developers/" target="_blank">DevStudio - Boootstrap Template for WebDev Agencies and Freelance Developers</a></h3>
-                                    <p class="mb-2"> You can put one of your secondary projects here. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.</p>
-                                    <p><a class="more-link" href="#/bootstrap-templates/startup/devstudio-bootstrap-theme-for-web-development-agencies-and-developers/" target="_blank"><i class="fas fa-external-link-alt"></i>Find out more</a></p>
-                                </div>
-                                <!--//desc-->
-                            </div>
-                            <!--//item-->
-
                         </div>
                         <!--//content-->
                     </div>
