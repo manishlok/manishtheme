@@ -169,8 +169,8 @@ $user_id = 1;
                         <div class="content">
                             <ul class="list-unstyled">
                                 <li><i class="fas fa-map-marker-alt"></i><span class="sr-only">Location:</span><?php the_field('address', 'user_' . $user_id); ?></li>
-                                <li><i class="fas fa-envelope"></i><span class="sr-only">Email:</span><a href="mailto:<?php echo $current_user->user_email; ?>"><?php echo $current_user->user_email; ?></a></li>
-                                <li><i class="fas fa-link"></i><span class="sr-only">Website:</span><a href="<?php echo $current_user->user_url; ?>"><?php echo $current_user->user_url; ?></a></li>
+                                <li><i class="fas fa-envelope"></i><span class="sr-only">Email:</span><a href="mailto:<?php the_field('email', 'user_' . $user_id); ?>"><?php the_field('email', 'user_' . $user_id); ?></a></li>
+                                <li><i class="fas fa-link"></i><span class="sr-only">Website:</span><a href="<?php the_field('website', 'user_' . $user_id); ?>"><?php the_field('website', 'user_' . $user_id); ?></a></li>
                             </ul>
                         </div>
                         <!--//content-->

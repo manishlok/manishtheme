@@ -19,7 +19,11 @@ if (!empty($sticky)) {
                 </div>
             </div>
 
-            <h3 class="title mb-3"><a href="<?php the_permalink(); ?>" target="_blank"><?php the_title(); ?></a></h3>
+            <h3 class="title mb-3">
+                <a href="<?php the_permalink(); ?>" target="_blank">
+                    <?php the_title(); ?>
+                </a>
+            </h3>
 
             <div class="desc text-start">
                 <p><?php the_excerpt(); ?></p>
